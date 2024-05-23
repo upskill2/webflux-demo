@@ -37,6 +37,23 @@ public class ReactiveMathController {
                 .defaultIfEmpty (ResponseEntity.notFound ().build ());
     }
 
+    @GetMapping ("/square/params")
+    public Mono<ResponseEntity<Response>> findSquareWithParams (@RequestParam int input) {
+        return Mono.just (input)
+                .handle ((integer, sink) -> {
+                    if (integer < 10 || integer > 20) {
+                        sink.error (new InputValidationException ("input is less than 10", integer));
+                    } else {
+                        sink.next (integer);
+                    }
+                })
+                .cast (Integer.class)
+                .filter (integer -> integer == 11)
+                .flatMap (service::findSquare)
+                .map (ResponseEntity::ok)
+                .defaultIfEmpty (ResponseEntity.notFound ().build ());
+    }
+
     @GetMapping (value = "/table/{input}/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Response> multiplicationTableStream (@PathVariable int input) {
         return service.multiplicationTable (input);

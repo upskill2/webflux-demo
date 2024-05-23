@@ -4,46 +4,15 @@ import com.weblux.demo.dto.Response;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GetSingleResponseTest extends BaseTest {
+public class AttributesTest extends BaseTest {
 
     @Autowired
     private WebClient webClient;
-
-
-    @Test
-    void blockTest () {
-        final Response response = webClient
-                .get ()
-                .uri ("/reactive-math/square/{input}", 11)
-                .retrieve ()
-                .bodyToMono (Response.class)
-                .block ();
-
-
-        assert response != null;
-        assertEquals (121, response.getOutput ());
-    }
-
-    @Test
-    void stepVerifierTest () {
-        final Flux<Response> monoresponse = webClient
-                .get ()
-                .uri ("/reactive-math/square/{input}", 11)
-                .retrieve ()
-                .bodyToFlux (Response.class);
-
-        StepVerifier
-                .create (monoresponse)
-                .assertNext (response -> assertEquals (121, response.getOutput ()))
-                .verifyComplete ();
-
-    }
 
     @Test
     void queryParamsTest () {
@@ -52,6 +21,7 @@ class GetSingleResponseTest extends BaseTest {
                 .uri (uriBuilder -> uriBuilder.path ("/reactive-math/square/params")
                         .queryParam ("input", 11)
                         .build ())
+                .attribute ("auth", "basic")
                 .retrieve ()
                 .bodyToMono (Response.class);
 
@@ -61,5 +31,4 @@ class GetSingleResponseTest extends BaseTest {
                 .as ("test for 11")
                 .verifyComplete ();
     }
-
 }

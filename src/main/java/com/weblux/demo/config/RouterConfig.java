@@ -26,6 +26,14 @@ public class RouterConfig {
                 .route ()
                 .path ("/router", this::serverResponseRouterFunction)
                 .path ("/calculator/{numberOne}/{numberTwo}", this::calculate)
+                .path ("/calculator/{numberOne}", this::calculateRange)
+                .build ();
+    }
+
+    private RouterFunction<ServerResponse> calculateRange (){
+        return RouterFunctions
+                .route ()
+                .GET (requestHandler::calculateWithRange)
                 .build ();
     }
 

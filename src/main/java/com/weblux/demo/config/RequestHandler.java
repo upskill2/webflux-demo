@@ -13,6 +13,9 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Component
 public class RequestHandler {
 
@@ -28,6 +31,22 @@ public class RequestHandler {
         return ServerResponse.ok ()
                 .contentType (MediaType.APPLICATION_JSON)
                 .bodyValue (sum);
+    }
+
+    public Mono<ServerResponse> calculateWithRange (ServerRequest serverRequest) {
+
+        int first = Integer.parseInt (serverRequest.pathVariable ("numberOne"));
+
+        List<Integer> numbers = serverRequest.queryParam ("numbers")
+                .stream ()
+                .flatMap (s -> Arrays.stream (s.split (",")))
+                .map (Integer::parseInt)
+                .toList ();
+
+        return ServerResponse.ok ()
+                .contentType (MediaType.TEXT_EVENT_STREAM)
+                .body (calculatorService.sumAll (first, numbers), Integer.class);
+
     }
 
     public Mono<ServerResponse> subtractNumbers (ServerRequest serverRequest) {

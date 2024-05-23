@@ -10,6 +10,12 @@ import reactor.test.StepVerifier;
 
 import javax.xml.bind.ValidationException;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class BadRequestTest extends BaseTest {
 
     @Autowired
@@ -29,7 +35,6 @@ public class BadRequestTest extends BaseTest {
                 .expectNextCount (0)
                 .expectError (UnknownHttpStatusCodeException.class);
     }
-
 
     @Test
     void badRequestTestExchange () {
