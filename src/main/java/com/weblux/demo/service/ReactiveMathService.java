@@ -21,7 +21,6 @@ public class ReactiveMathService {
                 .delayElements (Duration.ofSeconds (1))
                 .doOnNext (i -> {
                     System.out.println ("math-service processing " + i);
-               //     SleepUtil.sleepSeconds (1);
                 })
                 .map (i -> new Response (input * i));
     }

@@ -2,9 +2,7 @@ package com.weblux.demo.controller;
 
 import com.weblux.demo.dto.MultipleRequestDto;
 import com.weblux.demo.dto.Response;
-import com.weblux.demo.dto.SimpleNotFoundResponse;
 import com.weblux.demo.exception.InputValidationException;
-import com.weblux.demo.exception.SimpleBadRequestError;
 import com.weblux.demo.service.ReactiveMathService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.io.FileNotFoundException;
 import java.util.Map;
 
 @RestController
@@ -25,14 +22,6 @@ public class ReactiveMathController {
 
     @GetMapping ("/square/{input}")
     public Mono<ResponseEntity<Response>> findSquare (@PathVariable int input) {
-
-
-/*
-        if (input < 10 || input > 20) {
-            throw new InputValidationException ("input is less than 10", input);
-        }
-        return service.findSquare (input);
-*/
         return Mono.just (input)
                 .handle ((integer, sink) -> {
                     if (integer < 10 || integer > 20) {
@@ -49,6 +38,11 @@ public class ReactiveMathController {
     }
 
     @GetMapping (value = "/table/{input}/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Response> multiplicationTableStream (@PathVariable int input) {
+        return service.multiplicationTable (input);
+    }
+
+    @GetMapping (value = "/table/{input}")
     public Flux<Response> multiplicationTable (@PathVariable int input) {
         return service.multiplicationTable (input);
     }
