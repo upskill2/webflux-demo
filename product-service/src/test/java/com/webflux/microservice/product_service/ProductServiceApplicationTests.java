@@ -1,4 +1,4 @@
-package com.webflux.microservice.product_service;
+package java.com.webflux.microservice.product_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
