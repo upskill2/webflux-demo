@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import java.util.UUID;
 
 @RestController
-@Repository ("/user")
+@RequestMapping ("/user")
 public class UserController {
 
     @Autowired

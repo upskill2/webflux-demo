@@ -5,7 +5,8 @@ import java.util.UUID;
 
 public class UserDto {
 
-    private UUID id;
+    private int id;
+    private UUID userId;
     private String name;
     private double balance;
 
@@ -16,14 +17,22 @@ public class UserDto {
 
     }
 
+    public UUID getUserId () {
+        return userId;
+    }
+
+    public void setUserId (UUID userId) {
+        this.userId = userId;
+    }
+
     public UserDto () {
     }
 
-    public UUID getId () {
+    public int getId () {
         return id;
     }
 
-    public void setId (UUID id) {
+    public void setId (int id) {
         this.id = id;
     }
 
@@ -44,11 +53,11 @@ public class UserDto {
     }
 
     public static class Builder {
-        private UUID id;
+        private int id;
         private String name;
         private double balance;
 
-        public Builder withId (UUID id) {
+        public Builder withId (int id) {
             this.id = id;
             return this;
         }

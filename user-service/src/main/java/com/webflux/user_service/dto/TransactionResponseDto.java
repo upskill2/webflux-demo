@@ -1,13 +1,37 @@
 package com.webflux.user_service.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
 
-@Getter
-@Setter
+
 public class TransactionResponseDto {
+    public UUID getUserId () {
+        return userId;
+    }
+
+    public void setUserId (UUID userId) {
+        this.userId = userId;
+    }
+
+    public double getPrice () {
+        return price;
+    }
+
+    public void setPrice (double price) {
+        this.price = price;
+    }
+
+    public TransactionsStatus getStatus () {
+        return status;
+    }
+
+    public void setStatus (TransactionsStatus status) {
+        this.status = status;
+    }
 
     private UUID userId;
     private double price;
@@ -18,6 +42,9 @@ public class TransactionResponseDto {
         this.userId = builder.userId;
         this.price = builder.price;
         this.status = builder.status;
+    }
+
+    public TransactionResponseDto () {
     }
 
 
