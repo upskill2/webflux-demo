@@ -1,12 +1,12 @@
 package com.webflux.user_service.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.UUID;
 
-
 public class TransactionRequestDto {
+
+    public TransactionRequestDto () {
+    }
 
     public UUID getUserId () {
         return userId;

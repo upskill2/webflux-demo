@@ -10,10 +10,10 @@ import reactor.core.publisher.Mono;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends ReactiveCrudRepository<User, UUID> {
+public interface UserRepository extends ReactiveCrudRepository<User, Integer> {
 
     @Modifying
-    @Query(value = "update users set balance = balance - :amount where id=:userId " +
+    @Query(value = "update users set balance = balance - :amount where user_id=:userId " +
             "and balance >= :amount")
     Mono<Boolean> updateUserBalance (UUID userId, double amount);
 }

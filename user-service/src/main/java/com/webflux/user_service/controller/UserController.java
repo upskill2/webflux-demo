@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping ("/findById/{id}")
-    public Mono<ResponseEntity<UserDto>> getUserById (@PathVariable UUID id) {
+    public Mono<ResponseEntity<UserDto>> getUserById (@PathVariable int id) {
         return service
                 .geyUserById (id)
                 .map (ResponseEntity::ok)
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @DeleteMapping ("/delete/{id}")
-    public Mono<Void> deleteUser (@PathVariable UUID id) {
+    public Mono<Void> deleteUser (@PathVariable int id) {
         return service.deleteUser (id)
                 .map (ResponseEntity::ok)
                 .defaultIfEmpty (ResponseEntity.notFound ().build ())

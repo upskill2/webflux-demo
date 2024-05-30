@@ -2,13 +2,18 @@ package com.webflux.user_service.service;
 
 import com.webflux.user_service.dto.TransactionRequestDto;
 import com.webflux.user_service.dto.TransactionResponseDto;
+import com.webflux.user_service.entity.User;
+import com.webflux.user_service.entity.UserTransaction;
 import com.webflux.user_service.repository.TransactionRepository;
 import com.webflux.user_service.repository.UserRepository;
 import com.webflux.user_service.util.DtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -42,5 +47,11 @@ public class TransactionService {
                         .build ());
 
     }
+
+    public Flux<UserTransaction> getAllTransactions(int id){
+        return userRepository.findById(id)
+                .flatMapMany(user -> transactionRepository.findAllByUserId(user.getUserId()));
+    }
+
 
 }

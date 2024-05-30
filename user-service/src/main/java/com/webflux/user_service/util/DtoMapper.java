@@ -19,7 +19,7 @@ public abstract class DtoMapper {
 
     public abstract UserTransaction toTransactionEntity (TransactionRequestDto transactionRequestDto);
 
-    @ValueMapping (target = "status", source = "COMPLETED")
+    @Mapping (target = "status", source = "id", qualifiedByName = "accepted")
     public abstract TransactionResponseDto transactionDto (UserTransaction userTransaction);
 
     @Named ("generateId")
@@ -28,6 +28,11 @@ public abstract class DtoMapper {
             return userId;
         }
         return UUID.randomUUID ();
+    }
+
+    @Named ("accepted")
+    public TransactionResponseDto.TransactionsStatus accepted (int id) {
+        return  TransactionResponseDto.TransactionsStatus.COMPLETED;
     }
 
 }

@@ -27,7 +27,7 @@ public class UserService {
                 .map (mapper::toUserDto);
     }
 
-    public Mono<UserDto> geyUserById (UUID id) {
+    public Mono<UserDto> geyUserById (int id) {
         return repository
                 .findById (id)
                 .map (mapper::toUserDto);
@@ -41,7 +41,7 @@ public class UserService {
                 .map (mapper::toUserDto);
     }
 
-    public Mono<Void> deleteUser (UUID id) {
+    public Mono<Void> deleteUser (int id) {
         return repository.deleteById (id);
     }
 

@@ -1,8 +1,9 @@
 package com.webflux.user_service.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import jdk.jfr.Timestamp;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Embedded;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -14,6 +15,7 @@ public class UserTransaction {
     private int id;
     private UUID userId;
     private double price;
+    @CreatedDate
     private LocalDateTime transactionTime;
 
     public int getId () {
