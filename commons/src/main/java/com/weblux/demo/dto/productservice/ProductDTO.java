@@ -1,7 +1,4 @@
-package com.webflux.microservice.product_service.dto;
-
-import lombok.Builder;
-import lombok.Data;
+package com.weblux.demo.dto.productservice;
 
 import java.util.UUID;
 
