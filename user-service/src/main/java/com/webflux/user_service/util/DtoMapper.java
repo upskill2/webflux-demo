@@ -1,10 +1,10 @@
 package com.webflux.user_service.util;
 
-import com.webflux.user_service.dto.TransactionRequestDto;
-import com.webflux.user_service.dto.TransactionResponseDto;
-import com.webflux.user_service.dto.UserDto;
 import com.webflux.user_service.entity.User;
 import com.webflux.user_service.entity.UserTransaction;
+import com.weblux.demo.dto.userservice.TransactionRequestDto;
+import com.weblux.demo.dto.userservice.TransactionResponseDto;
+import com.weblux.demo.dto.userservice.UserDto;
 import org.mapstruct.*;
 
 import java.util.UUID;

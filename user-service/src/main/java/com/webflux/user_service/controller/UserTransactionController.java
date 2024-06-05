@@ -1,9 +1,10 @@
 package com.webflux.user_service.controller;
 
-import com.webflux.user_service.dto.TransactionRequestDto;
-import com.webflux.user_service.dto.TransactionResponseDto;
+
 import com.webflux.user_service.entity.UserTransaction;
 import com.webflux.user_service.service.TransactionService;
+import com.weblux.demo.dto.userservice.TransactionRequestDto;
+import com.weblux.demo.dto.userservice.TransactionResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

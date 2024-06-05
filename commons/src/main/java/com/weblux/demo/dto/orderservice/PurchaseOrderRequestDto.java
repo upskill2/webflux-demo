@@ -1,11 +1,11 @@
-package com.webflux_microservices.order_service.dto;
+package com.weblux.demo.dto.orderservice;
 
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
-public class OrderRequestDto {
+public class PurchaseOrderRequestDto {
    private int userId;
    private UUID productId;
 

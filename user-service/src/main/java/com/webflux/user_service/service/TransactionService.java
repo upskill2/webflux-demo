@@ -1,12 +1,12 @@
 package com.webflux.user_service.service;
 
-import com.webflux.user_service.dto.TransactionRequestDto;
-import com.webflux.user_service.dto.TransactionResponseDto;
-import com.webflux.user_service.entity.User;
+
 import com.webflux.user_service.entity.UserTransaction;
 import com.webflux.user_service.repository.TransactionRepository;
 import com.webflux.user_service.repository.UserRepository;
 import com.webflux.user_service.util.DtoMapper;
+import com.weblux.demo.dto.userservice.TransactionRequestDto;
+import com.weblux.demo.dto.userservice.TransactionResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

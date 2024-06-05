@@ -1,6 +1,6 @@
 package com.weblux.demo.dto.orderservice;
 
-public enum OrderStatus {
+public enum PurchaseOrderStatus {
 
     COMPLETED,
     FAILED

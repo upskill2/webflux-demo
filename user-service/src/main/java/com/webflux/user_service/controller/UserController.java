@@ -1,7 +1,7 @@
 package com.webflux.user_service.controller;
 
-import com.webflux.user_service.dto.UserDto;
 import com.webflux.user_service.service.UserService;
+import com.weblux.demo.dto.userservice.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
