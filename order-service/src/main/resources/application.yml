@@ -1,6 +1,6 @@
 server:
   port: 8083
 
-product.service.url: http://localhost:8091/product
-user.service.url: http://localhost:8082/user
+product.service.url: http://localhost:8091/product/
+user.service.url: http://localhost:8082/user/
 

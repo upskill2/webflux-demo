@@ -15,6 +15,12 @@ public class ProductDTO {
         this.price = builder.price;
     }
 
+    public ProductDTO (UUID id, String description, double price) {
+        this.id = id;
+        this.description = description;
+        this.price = price;
+    }
+
     public ProductDTO (String description, double price) {
         this.description = description;
         this.price = price;

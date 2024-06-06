@@ -1,7 +1,10 @@
 package com.webflux_microservices.order_service.entity;
 
 import com.weblux.demo.dto.orderservice.PurchaseOrderStatus;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +13,6 @@ import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-@Data
 @Table (name = "purchase_order")
 public class PurchaseOrderEntity {
 
@@ -22,6 +24,43 @@ public class PurchaseOrderEntity {
     private double amount;
     private PurchaseOrderStatus status;
 
+    public int getId () {
+        return id;
+    }
 
+    public void setId (int id) {
+        this.id = id;
+    }
 
+    public UUID getProductId () {
+        return productId;
+    }
+
+    public void setProductId (UUID productId) {
+        this.productId = productId;
+    }
+
+    public UUID getUserId () {
+        return userId;
+    }
+
+    public void setUserId (UUID userId) {
+        this.userId = userId;
+    }
+
+    public double getAmount () {
+        return amount;
+    }
+
+    public void setAmount (double amount) {
+        this.amount = amount;
+    }
+
+    public PurchaseOrderStatus getStatus () {
+        return status;
+    }
+
+    public void setStatus (PurchaseOrderStatus status) {
+        this.status = status;
+    }
 }
