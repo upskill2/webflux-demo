@@ -10,9 +10,13 @@ import com.weblux.demo.dto.orderservice.PurchaseOrderResponseDto;
 import com.weblux.demo.dto.orderservice.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
+
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderFullfilmentService {
@@ -42,6 +46,15 @@ public class OrderFullfilmentService {
                 .subscribeOn (Schedulers.boundedElastic ());
     }
 
+    public Flux<PurchaseOrderResponseDto> getAllOrders (UUID userId) {
+        return Flux
+                .fromStream (() -> repository
+                        .findByUserId (userId)
+                        .stream ()
+                        .map (mapper::purchaseEntityToPurchaseResponse))
+                .subscribeOn (Schedulers.boundedElastic ());
+    }
+
 
     private Mono<RequestContext> productRequestResponse (RequestContext context) {
         return productClient.getProductById (context.getPurchaseOrderRequestDto ().getProductId ())
@@ -56,7 +69,4 @@ public class OrderFullfilmentService {
 
     }
 
-    private Mono<RequestContext> userOrderResponse (RequestContext context) {
-        return null;
-    }
 }

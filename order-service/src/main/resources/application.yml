@@ -4,3 +4,15 @@ server:
 product.service.url: http://localhost:8091/product/
 user.service.url: http://localhost:8082/user/
 
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
