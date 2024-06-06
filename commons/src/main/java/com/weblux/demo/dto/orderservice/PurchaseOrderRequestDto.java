@@ -7,6 +7,12 @@ public class PurchaseOrderRequestDto {
     private UUID productId;
     private PurchaseOrderStatus status;
 
+    public PurchaseOrderRequestDto (UUID userId, UUID productId, PurchaseOrderStatus status) {
+        this.userId = userId;
+        this.productId = productId;
+        this.status = status;
+    }
+
     public PurchaseOrderStatus getStatus () {
         return status;
     }

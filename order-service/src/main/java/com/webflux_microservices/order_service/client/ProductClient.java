@@ -4,6 +4,7 @@ import com.weblux.demo.dto.productservice.ProductDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
@@ -28,4 +29,11 @@ public class ProductClient {
 
     }
 
+    public Flux<ProductDTO> getAllProducts () {
+        return webClient
+                .get ()
+                .uri ("/all")
+                .retrieve ()
+                .bodyToFlux (ProductDTO.class);
+    }
 }

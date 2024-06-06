@@ -6,6 +6,7 @@ import com.weblux.demo.dto.userservice.UserDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
@@ -32,6 +33,13 @@ public class UserClient {
                 .bodyToMono (UserDto.class);
     }
 
+    public Flux<UserDto> getAllUsers(){
+        return webClient.get ()
+                .uri ("/all")
+                .retrieve ()
+                .bodyToFlux (UserDto.class);
+    }
+
     public Mono<TransactionResponseDto> authorizeTransaction (TransactionRequestDto requestDto) {
      return   webClient.post ()
                 .uri ("transaction")
@@ -40,5 +48,7 @@ public class UserClient {
                 .bodyToMono (TransactionResponseDto.class);
 
     }
+
+
 
 }

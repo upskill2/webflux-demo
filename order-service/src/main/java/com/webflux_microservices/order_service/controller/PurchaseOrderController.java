@@ -1,5 +1,6 @@
 package com.webflux_microservices.order_service.controller;
 
+import com.webflux_microservices.order_service.service.AllOrdersAndUsers;
 import com.webflux_microservices.order_service.service.OrderFullfilmentService;
 import com.weblux.demo.dto.orderservice.PurchaseOrderRequestDto;
 import com.weblux.demo.dto.orderservice.PurchaseOrderResponseDto;
@@ -20,6 +21,8 @@ public class PurchaseOrderController {
 
     @Autowired
     private OrderFullfilmentService service;
+    @Autowired
+    private AllOrdersAndUsers allOrdersAndUsers;
 
     @PostMapping
     public Mono<ResponseEntity<PurchaseOrderResponseDto>> processOrder (@RequestBody Mono<PurchaseOrderRequestDto> requestDtoMono) {
@@ -32,6 +35,11 @@ public class PurchaseOrderController {
     @GetMapping ("/allByUserId/{userId}")
     public Flux<PurchaseOrderResponseDto> getAllOrders (@PathVariable UUID userId) {
         return service.getAllOrders (userId);
+    }
+
+    @GetMapping ("/processAll")
+    public Flux<PurchaseOrderResponseDto> processAll () {
+        return allOrdersAndUsers.placeOrdersForAll ();
     }
 
 

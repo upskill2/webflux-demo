@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
+import reactor.util.retry.Retry;
 
+import java.time.Duration;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderFullfilmentService {
@@ -59,12 +59,14 @@ public class OrderFullfilmentService {
     private Mono<RequestContext> productRequestResponse (RequestContext context) {
         return productClient.getProductById (context.getPurchaseOrderRequestDto ().getProductId ())
                 .doOnNext (context::setProductDTO)
+                .retryWhen ( Retry.fixedDelay (5, Duration.ofMillis (500)))
                 .thenReturn (context);
     }
 
     private Mono<RequestContext> userRequestResponse (RequestContext context) {
         return userClient.authorizeTransaction (context.getTransactionRequestDto ())
                 .doOnNext (context::setTransactionResponseDto)
+                .retryWhen ( Retry.fixedDelay (5, Duration.ofMillis (500)))
                 .thenReturn (context);
 
     }

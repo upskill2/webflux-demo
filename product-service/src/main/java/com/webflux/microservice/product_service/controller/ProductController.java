@@ -9,6 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 @RequestMapping ("/product")
@@ -37,6 +38,13 @@ public class ProductController {
     @GetMapping ("/findById/{id}")
     public Mono<ResponseEntity<ProductDTO>> findById (@PathVariable UUID id) {
         return service.findById (id)
+                .map (error->{
+                    int random = ThreadLocalRandom.current ().nextInt (1,10);
+                    if(random>5){
+                        throw new RuntimeException ("Error in product service");
+                    }
+                    return error;
+                })
                 .map (ResponseEntity::ok)
                 .defaultIfEmpty (ResponseEntity.notFound ()
                         .build ());
