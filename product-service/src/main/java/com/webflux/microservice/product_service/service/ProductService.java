@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.Sinks;
 
 import java.util.UUID;
 
@@ -18,6 +19,9 @@ public class ProductService {
 
     @Autowired
     private ProductMapper mapper;
+
+    @Autowired
+    private Sinks.Many<ProductDTO> sink;
 
     public Flux<ProductDTO> getAll () {
 
@@ -33,14 +37,11 @@ public class ProductService {
     }
 
     public Mono<ProductDTO> saveProduct (Mono<ProductDTO> productDTO) {
-/*        final UUID id = productDTO.map (ProductDTO::getId).block ();
-        if (id != null && repository.findById (id).blockOptional ().isPresent ()) {
-        }*/
-
         return productDTO
                 .map (mapper::toProductEntity)
                 .flatMap (repository::save)
-                .map (mapper::toProductDto);
+                .map (mapper::toProductDto)
+                .doOnNext (n->sink.tryEmitNext (n));
     }
 
     public Mono<Void> deleteProduct (UUID id) {
