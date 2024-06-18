@@ -20,6 +20,7 @@
         <module>user-service</module>
         <module>order-service</module>
         <module>commons</module>
+        <module>customerportfolio</module>
     </modules>
     <properties>
         <java.version>17</java.version>

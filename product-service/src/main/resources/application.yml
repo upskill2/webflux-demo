@@ -1,5 +1,9 @@
 server:
   port: 8091
+  compression:
+    enabled: true
+    min-response-size: 2048
+    mime-types: application/json,application/xml
 
 spring:
   mongodb:
