@@ -1,10 +1,10 @@
-package com.webflux.customerportfolio;
+package com.webflux.aggregator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CustomerportfolioApplicationTests {
+class AggregatorServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

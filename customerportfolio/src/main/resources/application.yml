@@ -1,7 +1,0 @@
-server:
-  port: 6060
-
-spring:
-  sql:
-    init:
-      data-locations: customerportfolio/src/main/resources/sql/data.sql
