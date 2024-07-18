@@ -1,7 +1,7 @@
 package com.webflux.microservice.product_service.controller;
 
 import com.webflux.microservice.product_service.service.ProductService;
-import com.weblux.demo.dto.productservice.ProductDTO;
+import com.weblux.demo.commons.dto.productservice.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

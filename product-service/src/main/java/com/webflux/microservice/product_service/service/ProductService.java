@@ -2,7 +2,7 @@ package com.webflux.microservice.product_service.service;
 
 import com.webflux.microservice.product_service.repository.ProductRepository;
 import com.webflux.microservice.product_service.util.ProductMapper;
-import com.weblux.demo.dto.productservice.ProductDTO;
+import com.weblux.demo.commons.dto.productservice.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

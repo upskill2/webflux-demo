@@ -1,8 +1,8 @@
 package com.webflux.customerportfolio.advice;
 
-import com.webflux.customerportfolio.exceptions.CustomerNotFoundException;
-import com.webflux.customerportfolio.exceptions.InsufficientFundsException;
-import com.webflux.customerportfolio.exceptions.InsufficientStocksException;
+import com.weblux.demo.commons.dto.exceptions.CustomerNotFoundException;
+import com.weblux.demo.commons.dto.exceptions.InsufficientFundsException;
+import com.weblux.demo.commons.dto.exceptions.InsufficientStocksException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ControllerAdvice;

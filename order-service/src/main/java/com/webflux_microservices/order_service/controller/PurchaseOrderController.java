@@ -2,8 +2,8 @@ package com.webflux_microservices.order_service.controller;
 
 import com.webflux_microservices.order_service.service.AllOrdersAndUsers;
 import com.webflux_microservices.order_service.service.OrderFullfilmentService;
-import com.weblux.demo.dto.orderservice.PurchaseOrderRequestDto;
-import com.weblux.demo.dto.orderservice.PurchaseOrderResponseDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderRequestDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package com.webflux.customerportfolio.service;
 
-import com.webflux.customerportfolio.dto.CustomerInformation;
+import com.weblux.demo.commons.dto.customer.CustomerInformation;
 import com.webflux.customerportfolio.exceptions.ApplicationExceptions;
 import com.webflux.customerportfolio.mapper.DtoMapper;
 import com.webflux.customerportfolio.repository.CustomerRepository;

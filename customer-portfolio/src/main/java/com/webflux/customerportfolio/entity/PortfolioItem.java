@@ -1,6 +1,6 @@
 package com.webflux.customerportfolio.entity;
 
-import com.webflux.customerportfolio.domain.Ticker;
+import com.weblux.demo.commons.dto.domain.Ticker;
 import org.springframework.data.annotation.Id;
 
 public class PortfolioItem {

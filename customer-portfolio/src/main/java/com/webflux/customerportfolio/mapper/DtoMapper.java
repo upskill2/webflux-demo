@@ -1,11 +1,10 @@
 package com.webflux.customerportfolio.mapper;
 
-import com.webflux.customerportfolio.dto.CustomerInformation;
-import com.webflux.customerportfolio.dto.StockTradeRequest;
-import com.webflux.customerportfolio.dto.StockTradeResponse;
+import com.weblux.demo.commons.dto.customer.CustomerInformation;
+import com.weblux.demo.commons.dto.customer.StockTradeRequest;
+import com.weblux.demo.commons.dto.customer.StockTradeResponse;
 import com.webflux.customerportfolio.entity.Customer;
 import com.webflux.customerportfolio.entity.PortfolioItem;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

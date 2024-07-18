@@ -1,15 +1,12 @@
 package com.webflux.user_service.controller;
 
 import com.webflux.user_service.service.UserService;
-import com.weblux.demo.dto.userservice.UserDto;
+import com.weblux.demo.commons.dto.userservice.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping ("/user")

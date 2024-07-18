@@ -1,10 +1,6 @@
 package com.webflux_microservices.order_service.entity;
 
-import com.weblux.demo.dto.orderservice.PurchaseOrderStatus;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderStatus;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

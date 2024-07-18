@@ -1,8 +1,8 @@
 package com.webflux_microservices.order_service.client;
 
-import com.weblux.demo.dto.userservice.TransactionRequestDto;
-import com.weblux.demo.dto.userservice.TransactionResponseDto;
-import com.weblux.demo.dto.userservice.UserDto;
+import com.weblux.demo.commons.dto.userservice.TransactionRequestDto;
+import com.weblux.demo.commons.dto.userservice.TransactionResponseDto;
+import com.weblux.demo.commons.dto.userservice.UserDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

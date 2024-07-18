@@ -1,12 +1,12 @@
 package com.webflux_microservices.order_service.util;
 
 import com.webflux_microservices.order_service.entity.PurchaseOrderEntity;
-import com.weblux.demo.dto.orderservice.PurchaseOrderRequestDto;
-import com.weblux.demo.dto.orderservice.PurchaseOrderResponseDto;
-import com.weblux.demo.dto.orderservice.PurchaseOrderStatus;
-import com.weblux.demo.dto.orderservice.RequestContext;
-import com.weblux.demo.dto.userservice.TransactionRequestDto;
-import com.weblux.demo.dto.userservice.TransactionResponseDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderRequestDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderResponseDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderStatus;
+import com.weblux.demo.commons.dto.orderservice.RequestContext;
+import com.weblux.demo.commons.dto.userservice.TransactionRequestDto;
+import com.weblux.demo.commons.dto.userservice.TransactionResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

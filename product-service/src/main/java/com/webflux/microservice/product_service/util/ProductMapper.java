@@ -1,7 +1,7 @@
 package com.webflux.microservice.product_service.util;
 
 import com.webflux.microservice.product_service.entity.Product;
-import com.weblux.demo.dto.productservice.ProductDTO;
+import com.weblux.demo.commons.dto.productservice.ProductDTO;
 import org.mapstruct.Mapper;
 
 

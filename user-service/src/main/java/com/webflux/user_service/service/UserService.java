@@ -3,13 +3,12 @@ package com.webflux.user_service.service;
 import com.webflux.user_service.entity.User;
 import com.webflux.user_service.repository.UserRepository;
 import com.webflux.user_service.util.DtoMapper;
-import com.weblux.demo.dto.userservice.UserDto;
+import com.weblux.demo.commons.dto.userservice.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.UUID;
 import java.util.function.Function;
 
 @Service

@@ -1,8 +1,8 @@
 package com.webflux.customerportfolio.controller;
 
-import com.webflux.customerportfolio.dto.CustomerInformation;
-import com.webflux.customerportfolio.dto.StockTradeRequest;
-import com.webflux.customerportfolio.dto.StockTradeResponse;
+import com.weblux.demo.commons.dto.customer.CustomerInformation;
+import com.weblux.demo.commons.dto.customer.StockTradeRequest;
+import com.weblux.demo.commons.dto.customer.StockTradeResponse;
 import com.webflux.customerportfolio.service.CustomerService;
 import com.webflux.customerportfolio.service.TradeService;
 import org.springframework.web.bind.annotation.*;

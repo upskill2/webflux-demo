@@ -2,12 +2,11 @@ package com.webflux_microservices.order_service.service;
 
 import com.webflux_microservices.order_service.client.ProductClient;
 import com.webflux_microservices.order_service.client.UserClient;
-import com.webflux_microservices.order_service.entity.PurchaseOrderEntity;
 import com.webflux_microservices.order_service.repository.PurchaseOrderRepository;
 import com.webflux_microservices.order_service.util.ContextMapper;
-import com.weblux.demo.dto.orderservice.PurchaseOrderRequestDto;
-import com.weblux.demo.dto.orderservice.PurchaseOrderResponseDto;
-import com.weblux.demo.dto.orderservice.RequestContext;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderRequestDto;
+import com.weblux.demo.commons.dto.orderservice.PurchaseOrderResponseDto;
+import com.weblux.demo.commons.dto.orderservice.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

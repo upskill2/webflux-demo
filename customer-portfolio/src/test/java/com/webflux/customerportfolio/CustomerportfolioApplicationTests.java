@@ -1,15 +1,14 @@
 package com.webflux.customerportfolio;
 
-import com.webflux.customerportfolio.domain.Ticker;
-import com.webflux.customerportfolio.domain.TradeAction;
-import com.webflux.customerportfolio.dto.StockTradeRequest;
+import com.weblux.demo.commons.dto.customer.StockTradeRequest;
+import com.weblux.demo.commons.dto.domain.Ticker;
+import com.weblux.demo.commons.dto.domain.TradeAction;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootTest
 @AutoConfigureWebTestClient

@@ -1,7 +1,7 @@
 package com.webflux.customerportfolio.service;
 
-import com.webflux.customerportfolio.dto.StockTradeRequest;
-import com.webflux.customerportfolio.dto.StockTradeResponse;
+import com.weblux.demo.commons.dto.customer.StockTradeRequest;
+import com.weblux.demo.commons.dto.customer.StockTradeResponse;
 import com.webflux.customerportfolio.entity.Customer;
 import com.webflux.customerportfolio.entity.PortfolioItem;
 import com.webflux.customerportfolio.exceptions.ApplicationExceptions;

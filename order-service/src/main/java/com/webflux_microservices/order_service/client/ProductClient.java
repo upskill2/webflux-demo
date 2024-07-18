@@ -1,6 +1,6 @@
 package com.webflux_microservices.order_service.client;
 
-import com.weblux.demo.dto.productservice.ProductDTO;
+import com.weblux.demo.commons.dto.productservice.ProductDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
