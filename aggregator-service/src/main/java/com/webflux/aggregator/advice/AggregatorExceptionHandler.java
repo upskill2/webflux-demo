@@ -4,6 +4,7 @@ import com.webflux.aggregator.exceptions.InvalidTradeException;
 import com.weblux.demo.commons.dto.exceptions.CustomerNotFoundException;
 import com.weblux.demo.commons.dto.exceptions.InsufficientFundsException;
 import com.weblux.demo.commons.dto.exceptions.InsufficientStocksException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,6 +14,7 @@ import java.net.URI;
 import java.util.function.Consumer;
 
 @ControllerAdvice
+@Slf4j
 public class AggregatorExceptionHandler {
 
 
@@ -28,6 +30,7 @@ public class AggregatorExceptionHandler {
     public ProblemDetail handleException (CustomerNotFoundException ex) {
         return build (HttpStatus.NOT_FOUND, ex, problemDetail -> {
             problemDetail.setType (URI.create ("http://localhost.com/problems/customer-not-faound"));
+            log.error ("Customer not found", ex);
             problemDetail.setTitle ("Invalid request");
         });
     }

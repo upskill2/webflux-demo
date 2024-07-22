@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "Test",
+  "balance": 100.0,
+  "holdings": [
+    {
+      "ticker": "GOGL",
+      "quantity": 100
+    }
+  ]
+}
